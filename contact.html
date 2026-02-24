@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Nairsys Inc</title>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#080f1a;--ink2:#0c1829;--ink3:#112238;--teal:#00d4aa;--teal2:#00a885;--amber:#ffaa00;--white:#f0f8ff;--muted:#6b8299;--muted2:#3d5570;--border:rgba(0,212,170,.13);--font-h:'Exo 2',sans-serif;--font-b:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,170,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(8,15,26,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nav-logo-mark{width:36px;height:36px;background:var(--ink3);border:1.5px solid var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:800;font-size:1rem;color:var(--teal);position:relative;overflow:hidden;flex-shrink:0}
+.nav-logo-mark::after{content:'';position:absolute;bottom:0;right:0;width:8px;height:8px;background:var(--amber);border-radius:2px 0 4px 0}
+.nav-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;letter-spacing:.03em}.nav-brand span{color:var(--teal)}
+.nav-links{display:flex;list-style:none;gap:.1rem}
+.nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--muted);padding:.45rem .85rem;border-radius:4px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);background:rgba(0,212,170,.07)}
+.nav-btn{font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-decoration:none;background:var(--teal);color:var(--ink);padding:.5rem 1.3rem;border-radius:5px;transition:background .2s}
+.nav-btn:hover{background:#33ddb8}
+
+.pg-hero{padding:4rem 2.5rem 3.5rem;background:var(--ink2);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.pg-orb{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);top:-120px;right:0;pointer-events:none}
+.bc{display:flex;align-items:center;gap:.5rem;font-size:.68rem;color:var(--muted2);margin-bottom:1.3rem}
+.bc a{color:var(--muted2);text-decoration:none}.bc a:hover{color:var(--teal)}
+.tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
+.tag::before{content:'';width:18px;height:1px;background:var(--teal)}
+.h2{font-family:var(--font-h);font-size:clamp(1.8rem,2.8vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.body{font-size:.87rem;line-height:1.85;color:var(--muted)}
+.sec{position:relative;z-index:1;padding:5rem 2.5rem}
+.sec-alt{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.btn-p{font-family:var(--font-h);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-decoration:none;background:var(--teal);color:var(--ink);padding:.85rem 2.2rem;border-radius:5px;transition:background .2s,transform .15s;display:inline-block;cursor:pointer;border:none}
+.btn-p:hover{background:#33ddb8;transform:translateY(-2px)}
+.btn-s{font-family:var(--font-h);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-decoration:none;background:transparent;color:var(--white);padding:.8rem 2rem;border-radius:5px;border:1px solid rgba(0,212,170,.25);transition:border-color .2s,color .2s;display:inline-block}
+.btn-s:hover{border-color:var(--teal);color:var(--teal)}
+
+/* METHODS */
+.methods-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem}
+.method-card{background:var(--ink2);border:1px solid var(--border);border-radius:9px;padding:2rem;text-align:center;transition:border-color .25s,transform .25s}
+.method-card:hover{border-color:var(--teal);transform:translateY(-3px)}
+.m-icon{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto 1.1rem}
+.m-icon.t{background:rgba(0,212,170,.1)}
+.m-icon.a{background:rgba(255,170,0,.1)}
+.m-title{font-family:var(--font-h);font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.m-desc{font-size:.73rem;color:var(--muted);line-height:1.7;margin-bottom:1.1rem}
+.m-action{font-size:.73rem;font-weight:600;color:var(--teal);text-decoration:none;transition:color .2s}
+.m-action:hover{color:var(--amber)}
+.m-action.a{color:var(--amber)}
+
+/* CONTACT LAYOUT */
+.contact-layout{display:grid;grid-template-columns:1fr 1.7fr;gap:5rem;align-items:start}
+.info-items{margin-top:2rem;display:flex;flex-direction:column;gap:1.4rem}
+.info-item{display:flex;gap:.9rem;align-items:flex-start}
+.info-ico{width:40px;height:40px;background:rgba(0,212,170,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);font-size:1rem}
+.info-ico.a{background:rgba(255,170,0,.1)}
+.info-label{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
+.info-label.a{color:var(--amber)}
+.info-val{font-size:.82rem;color:var(--muted);line-height:1.65}
+
+/* FORM */
+.contact-form{display:flex;flex-direction:column;gap:1.1rem}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg label{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fg input,.fg textarea,.fg select{
+  font-family:var(--font-b);font-size:.85rem;
+  background:var(--ink3);border:1px solid var(--border);
+  color:var(--white);padding:.75rem 1rem;border-radius:5px;
+  outline:none;transition:border-color .2s;width:100%;resize:none;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--muted2)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--teal)}
+.fg select option{background:var(--ink3)}
+.fg textarea{min-height:120px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.consent-row{display:flex;align-items:flex-start;gap:.7rem}
+.consent-row input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:.15rem;accent-color:var(--teal)}
+.consent-row label{font-size:.7rem;letter-spacing:0;text-transform:none;color:var(--muted);cursor:pointer;line-height:1.6}
+
+/* SUCCESS */
+.success-box{display:none;text-align:center;padding:3rem 2rem;border:1px solid rgba(0,212,170,.25);border-radius:10px;background:rgba(0,212,170,.04)}
+.success-box h3{font-family:var(--font-h);font-size:1.5rem;font-weight:800;margin:1rem 0 .5rem}
+.success-box p{font-size:.83rem;color:var(--muted);line-height:1.7}
+
+/* FAQ */
+.faq-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;color:var(--white);font-family:var(--font-h);font-size:.9rem;font-weight:700;text-align:left;padding:1.3rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--teal);flex-shrink:0;transition:transform .25s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:.82rem;line-height:1.8;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:1.3rem}
+
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:2.5rem;position:relative;z-index:1}
+.ft-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;margin-bottom:.5rem}.ft-brand span{color:var(--teal)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.ft-bottom p,.ft-bottom a{font-size:.65rem;color:var(--muted2);text-decoration:none}.ft-bottom a:hover{color:var(--teal)}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}.rev.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+@media(max-width:900px){
+  .nav-links{display:none}.methods-grid{grid-template-columns:1fr}.contact-layout{grid-template-columns:1fr;gap:3rem}
+  .pg-hero,.sec{padding-left:1.5rem;padding-right:1.5rem}.form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="home.html"><div class="nav-logo-mark">N</div><span class="nav-brand">Nairsys<span>.Inc</span></span></a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li><li><a href="industries.html">Industries</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="#form">Get Started</a>
+</nav>
+
+<div class="pg-hero"><div class="pg-orb"></div>
+  <div class="bc"><a href="home.html">Home</a><span>›</span><span>Contact</span></div>
+  <p class="tag">Get In Touch</p>
+  <h1 style="font-family:var(--font-h);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem">Let's build something<br><span style="color:var(--teal)">remarkable</span> together.</h1>
+  <p class="body" style="max-width:54ch">Whether you have a defined challenge or just a sense that your technology isn't performing the way it should — we'd love to talk. No pressure, no hard sell.</p>
+</div>
+
+<!-- CONTACT METHODS -->
+<section class="sec sec-alt">
+  <div class="rev"><p class="tag">How to Reach Us</p><h2 class="h2">Choose how<br>you'd like to connect.</h2></div>
+  <div class="methods-grid rev d1">
+    <div class="method-card">
+      <div class="m-icon t">📅</div>
+      <h3 class="m-title">Schedule a Call</h3>
+      <p class="m-desc">Book a 30-minute discovery call with a senior consultant. We'll discuss your challenges and explore how we can help — at no charge.</p>
+      <a class="m-action" href="#form">Use Form Below →</a>
+    </div>
+    <div class="method-card">
+      <div class="m-icon a">✉️</div>
+      <h3 class="m-title">Email Us Directly</h3>
+      <p class="m-desc">Send us a message and we'll respond within one business day. Include "URGENT" in the subject for critical issues.</p>
+      <a class="m-action a" href="mailto:balanair@nairsys.com">balanair@nairsys.com →</a>
+    </div>
+    <div class="method-card">
+      <div class="m-icon t">📞</div>
+      <h3 class="m-title">Call Us</h3>
+      <p class="m-desc">Available Monday–Friday, 8am–6pm EST. After-hours managed service support clients use your dedicated support line.</p>
+      <a class="m-action" href="tel:+16303520150">+1 (630) 352-0150 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORM + INFO -->
+<section class="sec" id="form">
+  <div class="contact-layout">
+    <div class="rev">
+      <p class="tag">Send a Message</p>
+      <h2 class="h2">Tell us about<br>your challenge.</h2>
+      <p class="body" style="margin-top:.8rem">A senior consultant from the relevant practice area will be in touch within one business day.</p>
+      <div class="info-items">
+        <div class="info-item">
+          <div class="info-ico">📍</div>
+          <div><p class="info-label">Offices</p><p class="info-val">New York, NY · Chicago, IL · Dallas, TX<br>Remote-first, on-site nationwide delivery</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico a">⏱️</div>
+          <div><p class="info-label a">Response Time</p><p class="info-val">Within 1 business day for general inquiries<br>Within 4 hours for managed service clients</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">🆓</div>
+          <div><p class="info-label">First Consultation</p><p class="info-val">Free, no-obligation 30–60 min discovery session with a senior consultant in your area</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico a">🔒</div>
+          <div><p class="info-label a">Confidentiality</p><p class="info-val">All conversations are treated as strictly confidential. We never share your information.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="rev d1">
+      <form class="contact-form" id="cform">
+        <div class="form-row">
+          <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required/></div>
+          <div class="fg"><label>Last Name *</label><input type="text" placeholder="Smith" required/></div>
+        </div>
+        <div class="fg"><label>Work Email *</label><input type="email" placeholder="jane@company.com" required/></div>
+        <div class="form-row">
+          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"/></div>
+          <div class="fg"><label>Company *</label><input type="text" placeholder="Acme Corp" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Company Size</label>
+            <select><option value="">Select size</option>
+              <option>1–50 employees</option><option>51–250 employees</option>
+              <option>251–1,000 employees</option><option>1,001–5,000 employees</option>
+              <option>5,000+ employees</option>
+            </select>
+          </div>
+          <div class="fg"><label>Timeline</label>
+            <select><option value="">Select timeline</option>
+              <option>Immediately (within 30 days)</option><option>1–3 months</option>
+              <option>3–6 months</option><option>6–12 months</option>
+              <option>Just exploring options</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label>Service Area of Interest *</label>
+          <select required><option value="">Select a service</option>
+            <option>IT Architecture &amp; Infrastructure</option>
+            <option>Strategy &amp; Digital Transformation</option>
+            <option>Cybersecurity</option>
+            <option>Data Analytics &amp; Business Intelligence</option>
+            <option>ERP Solutions</option>
+            <option>Database Management</option>
+            <option>Managed IT Services</option>
+            <option>Compliance &amp; Risk Management</option>
+            <option>Multiple / Not sure yet</option>
+          </select>
+        </div>
+        <div class="fg"><label>Describe Your Challenge *</label>
+          <textarea placeholder="Tell us about your current situation, key challenges, and what success looks like for your organization..." required></textarea>
+        </div>
+        <div class="consent-row fg">
+          <input type="checkbox" required/>
+          <label>I consent to Nairsys Inc contacting me about my inquiry. My information will not be shared with third parties.</label>
+        </div>
+        <button type="submit" class="btn-p" style="width:100%;font-size:.85rem;padding:1rem">
+          Send Message — Response Within 1 Business Day →
+        </button>
+      </form>
+      <div class="success-box" id="success">
+        <div style="font-size:3rem">✅</div>
+        <h3>Message Received!</h3>
+        <p>Thank you for reaching out. A senior Nairsys consultant will be in touch within one business day. We look forward to learning about your challenges.</p>
+        <a class="btn-s" href="services.html" style="margin-top:1.5rem">Explore Our Services →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-alt">
+  <div class="rev"><p class="tag">Common Questions</p><h2 class="h2">Before we talk —<br>quick answers.</h2></div>
+  <div class="faq-list rev d1">
+    <div class="faq-item"><button class="faq-q">What does the initial consultation involve?</button><div class="faq-a">Our discovery call is a free, 30–60 minute conversation with a senior consultant relevant to your area of interest. We'll explore your environment, pain points, and goals. No obligation or hard sell — we want to understand if and how we can genuinely help.</div></div>
+    <div class="faq-item"><button class="faq-q">How do you price your engagements?</button><div class="faq-a">We offer fixed-scope project pricing, time-and-materials engagements, and monthly managed service retainers. We provide transparent pricing upfront — no hidden fees. Managed IT plans start at $2,500/month for SMBs.</div></div>
+    <div class="faq-item"><button class="faq-q">Do you work with small businesses or only enterprises?</button><div class="faq-a">We serve organizations of all sizes — from 20-person companies to Fortune 500 enterprises. Our Managed IT and Compliance services are particularly popular with growing mid-market firms that need enterprise-grade IT without the enterprise-grade overhead.</div></div>
+    <div class="faq-item"><button class="faq-q">Will senior consultants actually do the work?</button><div class="faq-a">Yes — always. Every engagement is led and staffed by senior practitioners with relevant certifications. We never use junior consultants as the primary delivery resource. This is a core commitment at Nairsys.</div></div>
+    <div class="faq-item"><button class="faq-q">How quickly can you start?</button><div class="faq-a">For smaller engagements, we can typically begin within 1–2 weeks of contract signing. Larger projects involve a 2–4 week mobilization phase. For critical cybersecurity incidents or urgent managed service needs, we have an emergency response track with same-day availability.</div></div>
+    <div class="faq-item"><button class="faq-q">Are you vendor-neutral?</button><div class="faq-a">Yes. We have no preferred vendor partnerships that influence our recommendations. Our advice is driven solely by what's best for your specific environment, requirements, and budget. We'll tell you honestly when an off-the-shelf solution beats custom development.</div></div>
+  </div>
+</section>
+
+<footer><p class="ft-brand">Nairsys<span>.Inc</span></p>
+<div class="ft-bottom"><p>© 2011 Nairsys Inc · balanair@nairsys.com · +1 (630) 352-0150 · nairsys.com</p><p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p></div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+document.getElementById('cform').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('cform').style.display='none';
+  document.getElementById('success').style.display='block';
+});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}})},{threshold:.06});
+document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+</script>
+</body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Industries — Nairsys Inc</title>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#080f1a;--ink2:#0c1829;--ink3:#112238;--teal:#00d4aa;--teal2:#00a885;--amber:#ffaa00;--white:#f0f8ff;--muted:#6b8299;--muted2:#3d5570;--border:rgba(0,212,170,.13);--font-h:'Exo 2',sans-serif;--font-b:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,170,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(8,15,26,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nav-logo-mark{width:36px;height:36px;background:var(--ink3);border:1.5px solid var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:800;font-size:1rem;color:var(--teal);position:relative;overflow:hidden;flex-shrink:0}
+.nav-logo-mark::after{content:'';position:absolute;bottom:0;right:0;width:8px;height:8px;background:var(--amber);border-radius:2px 0 4px 0}
+.nav-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;letter-spacing:.03em}.nav-brand span{color:var(--teal)}
+.nav-links{display:flex;list-style:none;gap:.1rem}
+.nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--muted);padding:.45rem .85rem;border-radius:4px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);background:rgba(0,212,170,.07)}
+.nav-btn{font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-decoration:none;background:var(--teal);color:var(--ink);padding:.5rem 1.3rem;border-radius:5px;transition:background .2s}
+.nav-btn:hover{background:#33ddb8}
+.pg-hero{padding:4rem 2.5rem 3.5rem;background:var(--ink2);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.pg-orb{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);top:-120px;right:0;pointer-events:none}
+.bc{display:flex;align-items:center;gap:.5rem;font-size:.68rem;color:var(--muted2);margin-bottom:1.3rem}
+.bc a{color:var(--muted2);text-decoration:none}.bc a:hover{color:var(--teal)}
+.tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
+.tag::before{content:'';width:18px;height:1px;background:var(--teal)}
+.tag.a::before,.tag.a{color:var(--amber)}
+.tag.a::before{background:var(--amber)}
+.h2{font-family:var(--font-h);font-size:clamp(1.8rem,2.8vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.body{font-size:.87rem;line-height:1.85;color:var(--muted)}
+.sec{position:relative;z-index:1;padding:5rem 2.5rem}
+.sec-alt{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.btn-p{font-family:var(--font-h);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-decoration:none;background:var(--teal);color:var(--ink);padding:.8rem 2rem;border-radius:5px;transition:background .2s,transform .15s;display:inline-block;cursor:pointer;border:none}
+.btn-p:hover{background:#33ddb8;transform:translateY(-2px)}
+.btn-s{font-family:var(--font-h);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-decoration:none;background:transparent;color:var(--white);padding:.8rem 2rem;border-radius:5px;border:1px solid rgba(0,212,170,.25);transition:border-color .2s,color .2s;display:inline-block}
+.btn-s:hover{border-color:var(--teal);color:var(--teal)}
+
+/* INDUSTRY BLOCKS */
+.ind-block{padding:4rem 2.5rem;border-bottom:1px solid var(--border);display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start;position:relative;z-index:1}
+.ind-block:nth-child(even){background:var(--ink2)}
+.ind-side{position:sticky;top:80px}
+.ind-emoji{font-size:2.8rem;margin-bottom:.8rem}
+.ind-name{font-family:var(--font-h);font-size:1.4rem;font-weight:800;margin-bottom:.4rem}
+.ind-desc{font-size:.77rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem}
+.ind-stat{padding:.7rem 0;border-top:1px solid var(--border)}
+.ind-stat-n{font-family:var(--font-h);font-size:1.4rem;font-weight:800;color:var(--teal);line-height:1}
+.ind-stat-n.a{color:var(--amber)}
+.ind-stat-l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ind-content h3{font-family:var(--font-h);font-size:1.05rem;font-weight:700;margin:1.4rem 0 .5rem}
+.ind-content h3:first-child{margin-top:0}
+.ind-content p{font-size:.83rem;line-height:1.8;color:var(--muted);margin-bottom:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.3rem}
+.chip{font-size:.65rem;letter-spacing:.03em;background:rgba(255,170,0,.08);border:1px solid rgba(255,170,0,.18);color:var(--amber);padding:.27rem .8rem;border-radius:20px}
+
+/* CTA */
+.cta-sec{text-align:center;padding:5rem 2.5rem;background:linear-gradient(135deg,var(--ink3) 0%,var(--ink2) 100%);border-top:1px solid var(--border);position:relative;overflow:hidden;z-index:1}
+.cta-sec::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:2.5rem;position:relative;z-index:1}
+.ft-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;margin-bottom:.5rem}.ft-brand span{color:var(--teal)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.ft-bottom p,.ft-bottom a{font-size:.65rem;color:var(--muted2);text-decoration:none}.ft-bottom a:hover{color:var(--teal)}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}.rev.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+@media(max-width:900px){.nav-links{display:none}.ind-block{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem}.ind-side{position:static}.pg-hero,.sec{padding-left:1.5rem;padding-right:1.5rem}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="home.html"><div class="nav-logo-mark">N</div><span class="nav-brand">Nairsys<span>.Inc</span></span></a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li><li><a href="industries.html" class="active">Industries</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="contact.html">Get Started</a>
+</nav>
+
+<div class="pg-hero"><div class="pg-orb"></div>
+  <div class="bc"><a href="home.html">Home</a><span>›</span><span>Industries</span></div>
+  <p class="tag a">Sector Expertise</p>
+  <h1 style="font-family:var(--font-h);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem">Deep vertical knowledge.<br><span style="color:var(--amber)">Real industry context.</span></h1>
+  <p class="body" style="max-width:54ch">Every industry has unique regulatory, operational, and competitive dynamics. Our consultants bring sector-specific expertise — not generic frameworks — to every engagement.</p>
+</div>
+
+<!-- FINANCIAL -->
+<div class="ind-block rev" id="financial">
+  <div class="ind-side">
+    <div class="ind-emoji">🏦</div>
+    <h2 class="ind-name">Financial Services</h2>
+    <p class="ind-desc">Banking, insurance, wealth management, and fintech organizations.</p>
+    <div class="ind-stat"><div class="ind-stat-n">35+</div><div class="ind-stat-l">FS clients served</div></div>
+    <div class="ind-stat"><div class="ind-stat-n a">$2B+</div><div class="ind-stat-l">In assets protected</div></div>
+  </div>
+  <div class="ind-content">
+    <h3>The Challenge</h3>
+    <p>Financial services firms face an unprecedented convergence of digital disruption, regulatory pressure, and cyber threats. Legacy core systems must be modernized without disrupting mission-critical operations — all while meeting strict PCI DSS, SOX, and AML requirements.</p>
+    <h3>How Nairsys Helps</h3>
+    <p>We bring specialized expertise in core banking modernization, cloud migration for regulated workloads, real-time fraud analytics, open banking API architecture, and comprehensive compliance programs designed for the financial sector.</p>
+    <div class="chips">
+      <span class="chip">Core Banking Modernization</span><span class="chip">PCI DSS Compliance</span>
+      <span class="chip">Fraud Analytics</span><span class="chip">RegTech Integration</span>
+      <span class="chip">Open Banking APIs</span><span class="chip">Risk Data Aggregation</span>
+    </div>
+    <a class="btn-s" href="contact.html">Talk to a FS Specialist →</a>
+  </div>
+</div>
+
+<!-- HEALTHCARE -->
+<div class="ind-block rev" id="healthcare">
+  <div class="ind-side">
+    <div class="ind-emoji">🏥</div>
+    <h2 class="ind-name">Healthcare &amp; Life Sciences</h2>
+    <p class="ind-desc">Hospitals, health systems, payers, pharma, and medical device firms.</p>
+    <div class="ind-stat"><div class="ind-stat-n">40+</div><div class="ind-stat-l">Healthcare clients</div></div>
+    <div class="ind-stat"><div class="ind-stat-n a">100%</div><div class="ind-stat-l">HIPAA audit success</div></div>
+  </div>
+  <div class="ind-content">
+    <h3>The Challenge</h3>
+    <p>Healthcare organizations must balance patient care excellence with strict HIPAA compliance, interoperability mandates, and growing ransomware exposure — all while managing aging EMR infrastructure and increasing data volumes.</p>
+    <h3>How Nairsys Helps</h3>
+    <p>We specialize in EHR/EMR integration and optimization, HIPAA Security Rule compliance programs, healthcare data analytics and population health management, telehealth infrastructure, and medical device cybersecurity.</p>
+    <div class="chips">
+      <span class="chip">HIPAA Compliance</span><span class="chip">EHR Integration</span>
+      <span class="chip">HL7/FHIR APIs</span><span class="chip">Clinical Analytics</span>
+      <span class="chip">Ransomware Defense</span><span class="chip">Telehealth Infrastructure</span>
+    </div>
+    <a class="btn-s" href="contact.html">Talk to a Healthcare Specialist →</a>
+  </div>
+</div>
+
+<!-- MANUFACTURING -->
+<div class="ind-block rev" id="manufacturing">
+  <div class="ind-side">
+    <div class="ind-emoji">🏭</div>
+    <h2 class="ind-name">Manufacturing</h2>
+    <p class="ind-desc">Discrete, process, and hybrid manufacturers across all sectors.</p>
+    <div class="ind-stat"><div class="ind-stat-n">25+</div><div class="ind-stat-l">Manufacturing clients</div></div>
+    <div class="ind-stat"><div class="ind-stat-n a">30%</div><div class="ind-stat-l">Avg. cost reduction</div></div>
+  </div>
+  <div class="ind-content">
+    <h3>The Challenge</h3>
+    <p>Manufacturers face pressure to integrate OT and IT environments, adopt Industry 4.0 technologies, modernize ERP systems, and secure operational technology against increasingly sophisticated attacks targeting production systems.</p>
+    <h3>How Nairsys Helps</h3>
+    <p>We deliver SAP S/4HANA implementations tailored for manufacturing, IIoT architecture, OT/IT network segmentation, predictive maintenance analytics platforms, and supply chain visibility systems that reduce cost and improve throughput.</p>
+    <div class="chips">
+      <span class="chip">SAP S/4HANA</span><span class="chip">IIoT Architecture</span>
+      <span class="chip">OT/IT Security</span><span class="chip">Predictive Maintenance</span>
+      <span class="chip">Supply Chain Analytics</span><span class="chip">Industry 4.0</span>
+    </div>
+    <a class="btn-s" href="contact.html">Talk to a Manufacturing Specialist →</a>
+  </div>
+</div>
+
+<!-- GOVERNMENT -->
+<div class="ind-block rev" id="government">
+  <div class="ind-side">
+    <div class="ind-emoji">🏛️</div>
+    <h2 class="ind-name">Government &amp; Public Sector</h2>
+    <p class="ind-desc">Federal, state, local government and public institutions.</p>
+    <div class="ind-stat"><div class="ind-stat-n">NIST</div><div class="ind-stat-l">Framework specialists</div></div>
+    <div class="ind-stat"><div class="ind-stat-n a">CMMC</div><div class="ind-stat-l">Certified advisors</div></div>
+  </div>
+  <div class="ind-content">
+    <h3>The Challenge</h3>
+    <p>Government agencies face unique procurement constraints, legacy modernization needs, strict NIST and FedRAMP compliance requirements, and growing pressure to deliver citizen-facing digital services on tightly controlled budgets.</p>
+    <h3>How Nairsys Helps</h3>
+    <p>Our public sector practice specializes in NIST 800-53 and CMMC compliance, FedRAMP cloud migrations, legacy application modernization, digital service transformation, and zero-trust architecture for government networks.</p>
+    <div class="chips">
+      <span class="chip">NIST 800-53</span><span class="chip">CMMC Compliance</span>
+      <span class="chip">FedRAMP</span><span class="chip">Zero Trust</span>
+      <span class="chip">Digital Services</span><span class="chip">Legacy Modernization</span>
+    </div>
+    <a class="btn-s" href="contact.html">Talk to a Public Sector Specialist →</a>
+  </div>
+</div>
+
+<!-- RETAIL -->
+<div class="ind-block rev" id="retail">
+  <div class="ind-side">
+    <div class="ind-emoji">🛒</div>
+    <h2 class="ind-name">Retail &amp; eCommerce</h2>
+    <p class="ind-desc">Brick-and-mortar, omnichannel, and digital-native retailers.</p>
+    <div class="ind-stat"><div class="ind-stat-n">PCI DSS</div><div class="ind-stat-l">Specialists on staff</div></div>
+    <div class="ind-stat"><div class="ind-stat-n a">20+</div><div class="ind-stat-l">Retail implementations</div></div>
+  </div>
+  <div class="ind-content">
+    <h3>The Challenge</h3>
+    <p>Retailers must create seamless omnichannel experiences, protect cardholder data, optimize supply chains, and leverage real-time analytics to compete against agile digital-native competitors — all while managing complex ERP and POS environments.</p>
+    <h3>How Nairsys Helps</h3>
+    <p>We deliver PCI DSS compliance programs, eCommerce platform architecture, retail data warehouses and customer analytics, supply chain visibility systems, and omnichannel ERP integration for modern retail operations.</p>
+    <div class="chips">
+      <span class="chip">PCI DSS</span><span class="chip">Omnichannel Architecture</span>
+      <span class="chip">Customer Analytics</span><span class="chip">Inventory Optimization</span>
+      <span class="chip">ERP Integration</span><span class="chip">Personalization AI</span>
+    </div>
+    <a class="btn-s" href="contact.html">Talk to a Retail Specialist →</a>
+  </div>
+</div>
+
+<!-- ENERGY -->
+<div class="ind-block rev" id="energy">
+  <div class="ind-side">
+    <div class="ind-emoji">⚡</div>
+    <h2 class="ind-name">Energy &amp; Utilities</h2>
+    <p class="ind-desc">Power generators, utilities, oil &amp; gas, and renewable energy firms.</p>
+    <div class="ind-stat"><div class="ind-stat-n">NERC</div><div class="ind-stat-l">CIP compliance</div></div>
+    <div class="ind-stat"><div class="ind-stat-n a">OT/IT</div><div class="ind-stat-l">Security specialists</div></div>
+  </div>
+  <div class="ind-content">
+    <h3>The Challenge</h3>
+    <p>Energy companies operate critical infrastructure increasingly targeted by nation-state and criminal threat actors. NERC CIP compliance, SCADA security, and OT/IT convergence create complex security and operational challenges.</p>
+    <h3>How Nairsys Helps</h3>
+    <p>We deliver NERC CIP compliance programs, SCADA and ICS security assessments, smart grid architecture, operational technology monitoring, and energy analytics platforms that support grid reliability and efficiency goals.</p>
+    <div class="chips">
+      <span class="chip">NERC CIP</span><span class="chip">SCADA Security</span>
+      <span class="chip">ICS/OT Security</span><span class="chip">Smart Grid Architecture</span>
+      <span class="chip">Energy Analytics</span><span class="chip">Renewable Integration</span>
+    </div>
+    <a class="btn-s" href="contact.html">Talk to an Energy Specialist →</a>
+  </div>
+</div>
+
+<div class="cta-sec">
+  <p class="tag a" style="justify-content:center">Don't See Your Industry?</p>
+  <h2 class="h2" style="margin-bottom:1rem">We work across all sectors.</h2>
+  <p class="body" style="max-width:52ch;margin:0 auto 2rem;text-align:center">Technology, logistics, education, telecom, construction — our practice areas apply across every vertical. Let's discuss your specific environment.</p>
+  <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
+    <a class="btn-p" href="contact.html">Start a Conversation</a>
+    <a class="btn-s" href="services.html">Our Services →</a>
+  </div>
+</div>
+
+<footer><p class="ft-brand">Nairsys<span>.Inc</span></p>
+<div class="ft-bottom"><p>© 2024 Nairsys Inc · balanair@nairsys.com · +1 (630) 352-0150</p><p><a href="#">Privacy</a> · <a href="#">Terms</a></p></div>
+</footer>
+<script>const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}})},{threshold:.06});document.querySelectorAll('.rev').forEach(el=>obs.observe(el));</script>
+</body></html>

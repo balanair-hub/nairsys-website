@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — Nairsys Inc</title>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#080f1a;--ink2:#0c1829;--ink3:#112238;
+  --teal:#00d4aa;--teal2:#00a885;--blue:#0066ff;
+  --amber:#ffaa00;--white:#f0f8ff;--muted:#6b8299;--muted2:#3d5570;
+  --border:rgba(0,212,170,.13);--font-h:'Exo 2',sans-serif;--font-b:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,212,170,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,170,.025) 1px,transparent 1px);
+  background-size:48px 48px;pointer-events:none;z-index:0;
+}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:100;display:flex;align-items:center;
+  justify-content:space-between;padding:.9rem 2.5rem;
+  background:rgba(8,15,26,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nav-logo-mark{
+  width:36px;height:36px;background:var(--ink3);border:1.5px solid var(--teal);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-h);font-weight:800;font-size:1rem;color:var(--teal);
+  position:relative;overflow:hidden;flex-shrink:0;
+}
+.nav-logo-mark::after{
+  content:'';position:absolute;bottom:0;right:0;
+  width:8px;height:8px;background:var(--amber);border-radius:2px 0 4px 0;
+}
+.nav-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;letter-spacing:.03em}
+.nav-brand span{color:var(--teal)}
+.nav-links{display:flex;list-style:none;gap:.1rem}
+.nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--muted);padding:.45rem .85rem;border-radius:4px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);background:rgba(0,212,170,.07)}
+.nav-btn{font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-decoration:none;background:var(--teal);color:var(--ink);padding:.5rem 1.3rem;border-radius:5px;transition:background .2s}
+.nav-btn:hover{background:#33ddb8}
+
+/* PAGE HERO */
+.pg-hero{
+  padding:4rem 2.5rem 3.5rem;background:var(--ink2);
+  border-bottom:1px solid var(--border);position:relative;overflow:hidden;
+}
+.pg-orb{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);top:-120px;right:0;pointer-events:none}
+.pg-orb2{position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(255,170,0,.06) 0%,transparent 70%);bottom:-60px;left:10%;pointer-events:none}
+.bc{display:flex;align-items:center;gap:.5rem;font-size:.68rem;color:var(--muted2);margin-bottom:1.3rem}
+.bc a{color:var(--muted2);text-decoration:none}.bc a:hover{color:var(--teal)}
+.tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
+.tag::before{content:'';width:18px;height:1px;background:var(--teal)}
+.pg-h1{font-family:var(--font-h);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem}
+.pg-sub{font-size:.9rem;line-height:1.8;color:var(--muted);max-width:54ch}
+
+/* SECTION COMMON */
+.sec{position:relative;z-index:1}
+.h2{font-family:var(--font-h);font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.body{font-size:.87rem;line-height:1.85;color:var(--muted)}
+
+/* SERVICE BLOCKS */
+.svc-block{
+  padding:4.5rem 2.5rem;border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:1.5fr 1fr;gap:4rem;align-items:start;
+  position:relative;z-index:1;
+}
+.svc-block:nth-child(even){background:var(--ink2)}
+
+.svc-hdr{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.svc-ico-lg{
+  width:56px;height:56px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;flex-shrink:0;
+}
+.svc-ico-lg.teal{background:rgba(0,212,170,.12)}
+.svc-ico-lg.amber{background:rgba(255,170,0,.12)}
+.svc-num{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
+.svc-num.a{color:var(--amber)}
+.svc-title{font-family:var(--font-h);font-size:1.6rem;font-weight:800;line-height:1.15}
+.svc-lead{font-size:.88rem;line-height:1.85;color:var(--muted);margin-bottom:1.8rem}
+.cap-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.cap-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.82rem;color:var(--muted);line-height:1.6}
+.chk{
+  width:17px;height:17px;border-radius:50%;background:rgba(0,212,170,.15);
+  border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:.15rem;font-size:.55rem;color:var(--teal);
+}
+.chk.a{background:rgba(255,170,0,.15);border-color:var(--amber);color:var(--amber)}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.5rem}
+.tag-pill{
+  font-size:.62rem;letter-spacing:.04em;
+  background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.18);
+  color:var(--teal2);padding:.28rem .75rem;border-radius:20px;
+}
+.tag-pill.a{background:rgba(255,170,0,.07);border-color:rgba(255,170,0,.2);color:var(--amber)}
+
+/* SIDEBAR */
+.svc-sidebar{
+  background:var(--ink3);border:1px solid var(--border);
+  border-radius:10px;padding:1.8rem;position:sticky;top:80px;
+}
+.sb-h{font-family:var(--font-h);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:.9rem}
+.sb-stat{padding:.9rem 0;border-bottom:1px solid var(--border)}
+.sb-stat:last-of-type{border-bottom:none}
+.sb-n{font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:var(--teal);line-height:1}
+.sb-n.a{color:var(--amber)}
+.sb-l{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.btn-p{
+  font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.06em;
+  text-decoration:none;background:var(--teal);color:var(--ink);
+  padding:.75rem 1.5rem;border-radius:5px;transition:background .2s;
+  display:block;text-align:center;margin-top:1.5rem;
+}
+.btn-p:hover{background:#33ddb8}
+.btn-p.a{background:var(--amber);color:var(--ink)}
+.btn-p.a:hover{background:#ffc233}
+
+/* CTA */
+.cta-sec{
+  text-align:center;padding:5rem 2.5rem;
+  background:linear-gradient(135deg,var(--ink3) 0%,var(--ink2) 100%);
+  border-top:1px solid var(--border);position:relative;overflow:hidden;z-index:1;
+}
+.cta-sec::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.btn-s{font-family:var(--font-h);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-decoration:none;background:transparent;color:var(--white);padding:.8rem 2rem;border-radius:5px;border:1px solid rgba(0,212,170,.25);transition:border-color .2s,color .2s;display:inline-block}
+.btn-s:hover{border-color:var(--teal);color:var(--teal)}
+
+/* FOOTER */
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:2.5rem;position:relative;z-index:1}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.ft-bottom p,.ft-bottom a{font-size:.65rem;color:var(--muted2);text-decoration:none}
+.ft-bottom a:hover{color:var(--teal)}
+.ft-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;margin-bottom:.5rem}
+.ft-brand span{color:var(--teal)}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.rev.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .svc-block{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem}
+  .svc-sidebar{position:static}
+  .pg-hero{padding:3rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="home.html">
+    <div class="nav-logo-mark">N</div>
+    <span class="nav-brand">Nairsys<span>.Inc</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="contact.html">Get Started</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="pg-hero">
+  <div class="pg-orb"></div><div class="pg-orb2"></div>
+  <div class="bc"><a href="home.html">Home</a> <span>›</span> <span>Services</span></div>
+  <p class="tag">What We Deliver</p>
+  <h1 class="pg-h1">Full-spectrum IT expertise.<br><span style="color:var(--teal)">One trusted team.</span></h1>
+  <p class="pg-sub">Eight integrated practice areas, each led by certified senior specialists, designed to solve your most complex technology challenges.</p>
+</div>
+
+<!-- 1 - IT ARCHITECTURE -->
+<div class="svc-block rev" id="architecture">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg teal">🏗️</div>
+      <div><p class="svc-num">Practice 01</p><h2 class="svc-title">IT Architecture &amp; Infrastructure</h2></div>
+    </div>
+    <p class="svc-lead">A well-designed architecture is the backbone of every high-performing organization. Our enterprise architects design resilient, scalable, and secure technology infrastructures aligned to your 3–5 year business strategy — from cloud blueprints to data center optimization.</p>
+    <ul class="cap-list">
+      <li><span class="chk">✓</span> Enterprise Architecture (TOGAF, Zachman frameworks)</li>
+      <li><span class="chk">✓</span> Cloud Architecture — AWS, Azure, GCP</li>
+      <li><span class="chk">✓</span> Hybrid &amp; Multi-Cloud Strategy</li>
+      <li><span class="chk">✓</span> Network Design, SD-WAN &amp; Zero-Trust Networking</li>
+      <li><span class="chk">✓</span> API &amp; Integration Architecture</li>
+      <li><span class="chk">✓</span> Data Center Consolidation &amp; Modernization</li>
+      <li><span class="chk">✓</span> Disaster Recovery &amp; Business Continuity Planning</li>
+      <li><span class="chk">✓</span> Infrastructure Cost Optimization</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill">AWS</span><span class="tag-pill">Azure</span><span class="tag-pill">GCP</span>
+      <span class="tag-pill">Terraform</span><span class="tag-pill">Kubernetes</span><span class="tag-pill">VMware</span>
+      <span class="tag-pill">Cisco</span><span class="tag-pill">TOGAF 9</span><span class="tag-pill">ArchiMate</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">Typical Engagement</p>
+    <div class="sb-stat"><div class="sb-n">2–4 wk</div><div class="sb-l">Architecture Assessment</div></div>
+    <div class="sb-stat"><div class="sb-n">4–8 wk</div><div class="sb-l">Blueprint &amp; Roadmap</div></div>
+    <div class="sb-stat"><div class="sb-n a">3–12 mo</div><div class="sb-l">Implementation</div></div>
+    <a class="btn-p" href="contact.html">Request Assessment</a>
+  </div>
+</div>
+
+<!-- 2 - STRATEGY -->
+<div class="svc-block rev" id="strategy">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg amber">⚡</div>
+      <div><p class="svc-num a">Practice 02</p><h2 class="svc-title">Strategy &amp; Digital Transformation</h2></div>
+    </div>
+    <p class="svc-lead">Digital transformation is not a technology project — it's an organizational shift. Our strategy consultants define a clear vision, build a pragmatic roadmap, and lead the change management required to make transformation endure, from RPA automation to AI-powered operating models.</p>
+    <ul class="cap-list">
+      <li><span class="chk a">✓</span> IT Strategy &amp; Multi-Year Roadmapping</li>
+      <li><span class="chk a">✓</span> Digital Operating Model Design</li>
+      <li><span class="chk a">✓</span> Process Automation (RPA, BPM, low-code)</li>
+      <li><span class="chk a">✓</span> Customer Experience Digitization</li>
+      <li><span class="chk a">✓</span> AI/ML Strategy &amp; Enablement Programs</li>
+      <li><span class="chk a">✓</span> Change Management &amp; Adoption Frameworks</li>
+      <li><span class="chk a">✓</span> Technology Vendor Selection &amp; RFP Management</li>
+      <li><span class="chk a">✓</span> Innovation Lab Setup &amp; Rapid Prototyping</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill a">UiPath</span><span class="tag-pill a">Power Platform</span><span class="tag-pill a">ServiceNow</span>
+      <span class="tag-pill a">Salesforce</span><span class="tag-pill a">Azure AI</span><span class="tag-pill a">OpenAI</span>
+      <span class="tag-pill a">SAFe Agile</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">Outcome Benchmarks</p>
+    <div class="sb-stat"><div class="sb-n a">40%</div><div class="sb-l">Avg. process efficiency gain</div></div>
+    <div class="sb-stat"><div class="sb-n">12–18 mo</div><div class="sb-l">Typical ROI realization</div></div>
+    <div class="sb-stat"><div class="sb-n a">95%</div><div class="sb-l">Adoption rate (with our change mgmt)</div></div>
+    <a class="btn-p a" href="contact.html">Start Your Roadmap</a>
+  </div>
+</div>
+
+<!-- 3 - CYBERSECURITY -->
+<div class="svc-block rev" id="cybersecurity">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg teal">🛡️</div>
+      <div><p class="svc-num">Practice 03</p><h2 class="svc-title">Cybersecurity</h2></div>
+    </div>
+    <p class="svc-lead">Cybersecurity is existential. Our security practice combines offensive and defensive capabilities to protect your people, data, and systems from sophisticated threats — while ensuring your security posture supports, not slows, your business operations.</p>
+    <ul class="cap-list">
+      <li><span class="chk">✓</span> Security Risk Assessment &amp; Gap Analysis</li>
+      <li><span class="chk">✓</span> Zero-Trust Architecture Design &amp; Implementation</li>
+      <li><span class="chk">✓</span> SIEM Implementation &amp; 24/7 SOC Management</li>
+      <li><span class="chk">✓</span> Penetration Testing &amp; Red Team Exercises</li>
+      <li><span class="chk">✓</span> Endpoint Detection &amp; Response (EDR/XDR)</li>
+      <li><span class="chk">✓</span> Identity &amp; Access Management (IAM/PAM)</li>
+      <li><span class="chk">✓</span> Security Awareness Training Programs</li>
+      <li><span class="chk">✓</span> Incident Response &amp; Digital Forensics</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill">CrowdStrike</span><span class="tag-pill">Palo Alto</span><span class="tag-pill">Splunk</span>
+      <span class="tag-pill">MS Sentinel</span><span class="tag-pill">Okta</span><span class="tag-pill">CyberArk</span>
+      <span class="tag-pill">Tenable</span><span class="tag-pill">Fortinet</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">Team Credentials</p>
+    <div class="sb-stat"><div class="sb-n">CISSP</div><div class="sb-l">Certified architects on staff</div></div>
+    <div class="sb-stat"><div class="sb-n">CISM</div><div class="sb-l">&amp; CEH specialists</div></div>
+    <div class="sb-stat"><div class="sb-n a">OSCP</div><div class="sb-l">Penetration testers</div></div>
+    <a class="btn-p" href="contact.html">Free Security Assessment</a>
+  </div>
+</div>
+
+<!-- 4 - DATA -->
+<div class="svc-block rev" id="data">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg amber">📊</div>
+      <div><p class="svc-num a">Practice 04</p><h2 class="svc-title">Data Analytics &amp; Business Intelligence</h2></div>
+    </div>
+    <p class="svc-lead">Data is your most valuable asset — if you can access, trust, and act on it. We build the data infrastructure, governance, and analytics capabilities needed to move from reactive reporting to proactive, AI-powered decision-making that delivers competitive advantage.</p>
+    <ul class="cap-list">
+      <li><span class="chk a">✓</span> Data Strategy &amp; Governance Frameworks</li>
+      <li><span class="chk a">✓</span> Data Warehouse &amp; Lakehouse Design</li>
+      <li><span class="chk a">✓</span> ETL/ELT Pipeline Development</li>
+      <li><span class="chk a">✓</span> BI Dashboards &amp; Executive Reporting</li>
+      <li><span class="chk a">✓</span> Advanced Analytics &amp; Predictive Modeling</li>
+      <li><span class="chk a">✓</span> Machine Learning &amp; AI Integration</li>
+      <li><span class="chk a">✓</span> Real-Time Streaming Analytics</li>
+      <li><span class="chk a">✓</span> Data Quality &amp; Master Data Management</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill a">Snowflake</span><span class="tag-pill a">Databricks</span><span class="tag-pill a">Power BI</span>
+      <span class="tag-pill a">Tableau</span><span class="tag-pill a">dbt</span><span class="tag-pill a">Apache Spark</span>
+      <span class="tag-pill a">Azure Synapse</span><span class="tag-pill a">BigQuery</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">Quick Wins</p>
+    <div class="sb-stat"><div class="sb-n a">4 wk</div><div class="sb-l">Unified executive dashboard</div></div>
+    <div class="sb-stat"><div class="sb-n">8 wk</div><div class="sb-l">Data quality audit &amp; remediation</div></div>
+    <div class="sb-stat"><div class="sb-n a">12 wk</div><div class="sb-l">Self-service analytics deployment</div></div>
+    <a class="btn-p a" href="contact.html">Explore Data Services</a>
+  </div>
+</div>
+
+<!-- 5 - ERP -->
+<div class="svc-block rev" id="erp">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg teal">🔧</div>
+      <div><p class="svc-num">Practice 05</p><h2 class="svc-title">ERP Solutions</h2></div>
+    </div>
+    <p class="svc-lead">ERP implementations are high-stakes, high-reward undertakings. Our certified specialists bring hands-on experience with SAP, Oracle, and Microsoft Dynamics — from initial selection through go-live and continuous optimization — ensuring your ERP investment delivers lasting value.</p>
+    <ul class="cap-list">
+      <li><span class="chk">✓</span> ERP Selection &amp; Business Case Development</li>
+      <li><span class="chk">✓</span> SAP S/4HANA Implementation &amp; Migration</li>
+      <li><span class="chk">✓</span> Oracle Cloud ERP Implementation</li>
+      <li><span class="chk">✓</span> Microsoft Dynamics 365 Deployment</li>
+      <li><span class="chk">✓</span> Custom Module Development &amp; Integration</li>
+      <li><span class="chk">✓</span> Legacy ERP Modernization</li>
+      <li><span class="chk">✓</span> ERP Training &amp; Change Management</li>
+      <li><span class="chk">✓</span> Post Go-Live Support &amp; Optimization</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill">SAP S/4HANA</span><span class="tag-pill">Oracle Cloud</span><span class="tag-pill">MS Dynamics 365</span>
+      <span class="tag-pill">NetSuite</span><span class="tag-pill">Workday</span><span class="tag-pill">ABAP</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">Our ERP Process</p>
+    <div class="sb-stat"><div class="sb-n">01</div><div class="sb-l">Fit-Gap Analysis</div></div>
+    <div class="sb-stat"><div class="sb-n">02</div><div class="sb-l">Blueprint &amp; Configuration</div></div>
+    <div class="sb-stat"><div class="sb-n">03</div><div class="sb-l">Data Migration &amp; Testing</div></div>
+    <div class="sb-stat"><div class="sb-n">04</div><div class="sb-l">Training &amp; Go-Live</div></div>
+    <div class="sb-stat"><div class="sb-n a">05</div><div class="sb-l">Hypercare &amp; Optimization</div></div>
+    <a class="btn-p" href="contact.html">ERP Consultation</a>
+  </div>
+</div>
+
+<!-- 6 - DATABASE -->
+<div class="svc-block rev" id="database">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg amber">🗄️</div>
+      <div><p class="svc-num a">Practice 06</p><h2 class="svc-title">Database Management</h2></div>
+    </div>
+    <p class="svc-lead">Poor database performance silently drains productivity and revenue. Our DBAs and architects deliver high-availability, high-performance database environments — from initial design and cloud migration to ongoing management and disaster recovery — as a service or project engagement.</p>
+    <ul class="cap-list">
+      <li><span class="chk a">✓</span> Database Architecture &amp; Schema Design</li>
+      <li><span class="chk a">✓</span> Performance Tuning &amp; Query Optimization</li>
+      <li><span class="chk a">✓</span> Cloud Database Migration (RDS, Azure SQL, Cloud SQL)</li>
+      <li><span class="chk a">✓</span> High-Availability &amp; Replication Setup</li>
+      <li><span class="chk a">✓</span> Backup Strategy &amp; Disaster Recovery</li>
+      <li><span class="chk a">✓</span> NoSQL Design — MongoDB, Cassandra, Redis</li>
+      <li><span class="chk a">✓</span> Data Security &amp; Encryption at Rest/Transit</li>
+      <li><span class="chk a">✓</span> DBA-as-a-Service (ongoing managed DBA)</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill a">PostgreSQL</span><span class="tag-pill a">SQL Server</span><span class="tag-pill a">Oracle DB</span>
+      <span class="tag-pill a">MySQL</span><span class="tag-pill a">MongoDB</span><span class="tag-pill a">Redis</span>
+      <span class="tag-pill a">AWS RDS</span><span class="tag-pill a">Azure SQL</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">DBA-as-a-Service</p>
+    <p style="font-size:.75rem;color:var(--muted);margin:.5rem 0 1rem;line-height:1.7">On-demand expert DBA support without the cost of a full-time hire. Flexible hours to match your needs.</p>
+    <div class="sb-stat"><div class="sb-n a">24/7</div><div class="sb-l">Monitoring &amp; alerting</div></div>
+    <div class="sb-stat"><div class="sb-n">Monthly</div><div class="sb-l">Performance reports</div></div>
+    <a class="btn-p a" href="contact.html">Get DBA Support</a>
+  </div>
+</div>
+
+<!-- 7 - MANAGED IT -->
+<div class="svc-block rev" id="managed">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg teal">💻</div>
+      <div><p class="svc-num">Practice 07</p><h2 class="svc-title">Managed IT Services</h2></div>
+    </div>
+    <p class="svc-lead">Let us handle the complexity of day-to-day IT so your team can focus on what matters most. Our Managed IT Services provide proactive, 24/7 support — preventing issues before they impact your business with guaranteed SLAs, dedicated engineers, and transparent monthly reporting.</p>
+    <ul class="cap-list">
+      <li><span class="chk">✓</span> 24/7 NOC (Network Operations Center)</li>
+      <li><span class="chk">✓</span> Helpdesk &amp; End-User Support (Tier 1–3)</li>
+      <li><span class="chk">✓</span> Infrastructure Monitoring &amp; Alerting</li>
+      <li><span class="chk">✓</span> Patch Management &amp; Update Automation</li>
+      <li><span class="chk">✓</span> Backup Monitoring &amp; Restoration Testing</li>
+      <li><span class="chk">✓</span> IT Asset Lifecycle Management</li>
+      <li><span class="chk">✓</span> Vendor &amp; License Management</li>
+      <li><span class="chk">✓</span> vCIO Advisory Services</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill">ConnectWise</span><span class="tag-pill">ServiceNow</span><span class="tag-pill">SolarWinds</span>
+      <span class="tag-pill">Datto</span><span class="tag-pill">Microsoft 365</span><span class="tag-pill">Intune</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">SLA Guarantees</p>
+    <div class="sb-stat"><div class="sb-n">&lt;15 min</div><div class="sb-l">Critical response time</div></div>
+    <div class="sb-stat"><div class="sb-n a">99.9%</div><div class="sb-l">Uptime guarantee</div></div>
+    <div class="sb-stat"><div class="sb-n">Monthly</div><div class="sb-l">Reports &amp; QBRs</div></div>
+    <a class="btn-p" href="contact.html">View Managed Plans</a>
+  </div>
+</div>
+
+<!-- 8 - COMPLIANCE -->
+<div class="svc-block rev" id="compliance">
+  <div>
+    <div class="svc-hdr">
+      <div class="svc-ico-lg amber">✅</div>
+      <div><p class="svc-num a">Practice 08</p><h2 class="svc-title">Compliance &amp; Risk Management</h2></div>
+    </div>
+    <p class="svc-lead">Regulatory complexity demands both technical depth and compliance expertise. Our GRC specialists help organizations achieve and maintain compliance with major frameworks — while building a risk-aware culture that protects your business from financial, legal, and reputational exposure.</p>
+    <ul class="cap-list">
+      <li><span class="chk a">✓</span> HIPAA Compliance &amp; Security Risk Analysis</li>
+      <li><span class="chk a">✓</span> SOC 2 Type I &amp; Type II Readiness</li>
+      <li><span class="chk a">✓</span> ISO 27001 Certification Support</li>
+      <li><span class="chk a">✓</span> GDPR &amp; CCPA Data Privacy Programs</li>
+      <li><span class="chk a">✓</span> NIST CSF &amp; 800-53 Implementation</li>
+      <li><span class="chk a">✓</span> PCI DSS Assessment &amp; Remediation</li>
+      <li><span class="chk a">✓</span> Third-Party Risk Management</li>
+      <li><span class="chk a">✓</span> Continuous Compliance Monitoring Programs</li>
+    </ul>
+    <div class="tags">
+      <span class="tag-pill a">HIPAA</span><span class="tag-pill a">SOC 2</span><span class="tag-pill a">ISO 27001</span>
+      <span class="tag-pill a">GDPR</span><span class="tag-pill a">NIST</span><span class="tag-pill a">PCI DSS</span>
+      <span class="tag-pill a">CMMC</span><span class="tag-pill a">FedRAMP</span>
+    </div>
+  </div>
+  <div class="svc-sidebar">
+    <p class="sb-h">Compliance Roadmap</p>
+    <div class="sb-stat"><div class="sb-n a">01</div><div class="sb-l">Gap Assessment &amp; Risk Register</div></div>
+    <div class="sb-stat"><div class="sb-n">02</div><div class="sb-l">Remediation Planning</div></div>
+    <div class="sb-stat"><div class="sb-n a">03</div><div class="sb-l">Controls Implementation</div></div>
+    <div class="sb-stat"><div class="sb-n">04</div><div class="sb-l">Audit Preparation &amp; Support</div></div>
+    <div class="sb-stat"><div class="sb-n a">05</div><div class="sb-l">Continuous Monitoring</div></div>
+    <a class="btn-p a" href="contact.html">Free Gap Analysis</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-sec">
+  <p class="tag" style="justify-content:center">Start Today</p>
+  <h2 class="h2">Not sure where to begin?</h2>
+  <p class="body" style="max-width:56ch;margin:.8rem auto 0;text-align:center">Our experts will help you identify the highest-impact opportunities in your IT environment — free, no obligation.</p>
+  <div class="cta-btns">
+    <a class="btn-p" href="contact.html">Schedule Free Discovery Call</a>
+    <a class="btn-s" href="home.html">Back to Home →</a>
+  </div>
+</div>
+
+<footer>
+  <p class="ft-brand">Nairsys<span>.Inc</span></p>
+  <div class="ft-bottom">
+    <p>© 2024 Nairsys Inc · balanair@nairsys.com · +1 (630) 352-0150</p>
+    <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}})},{threshold:.06});
+document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

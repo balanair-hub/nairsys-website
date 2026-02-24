@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us — Nairsys Inc</title>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#080f1a;--ink2:#0c1829;--ink3:#112238;
+  --teal:#00d4aa;--teal2:#00a885;--blue:#0066ff;
+  --amber:#ffaa00;--white:#f0f8ff;--muted:#6b8299;--muted2:#3d5570;
+  --border:rgba(0,212,170,.13);--font-h:'Exo 2',sans-serif;--font-b:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,170,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(8,15,26,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nav-logo-mark{width:36px;height:36px;background:var(--ink3);border:1.5px solid var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:800;font-size:1rem;color:var(--teal);position:relative;overflow:hidden;flex-shrink:0}
+.nav-logo-mark::after{content:'';position:absolute;bottom:0;right:0;width:8px;height:8px;background:var(--amber);border-radius:2px 0 4px 0}
+.nav-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;letter-spacing:.03em}
+.nav-brand span{color:var(--teal)}
+.nav-links{display:flex;list-style:none;gap:.1rem}
+.nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--muted);padding:.45rem .85rem;border-radius:4px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);background:rgba(0,212,170,.07)}
+.nav-btn{font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-decoration:none;background:var(--teal);color:var(--ink);padding:.5rem 1.3rem;border-radius:5px;transition:background .2s}
+.nav-btn:hover{background:#33ddb8}
+.pg-hero{padding:4rem 2.5rem 3.5rem;background:var(--ink2);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.pg-orb{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);top:-120px;right:0;pointer-events:none}
+.bc{display:flex;align-items:center;gap:.5rem;font-size:.68rem;color:var(--muted2);margin-bottom:1.3rem}
+.bc a{color:var(--muted2);text-decoration:none}.bc a:hover{color:var(--teal)}
+.tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
+.tag::before{content:'';width:18px;height:1px;background:var(--teal)}
+.tag.a::before{background:var(--amber)}
+.tag.a{color:var(--amber)}
+.h2{font-family:var(--font-h);font-size:clamp(1.8rem,2.8vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.body{font-size:.87rem;line-height:1.85;color:var(--muted)}
+.sec{position:relative;z-index:1;padding:5rem 2.5rem}
+.sec-alt{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.btn-p{font-family:var(--font-h);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-decoration:none;background:var(--teal);color:var(--ink);padding:.8rem 2rem;border-radius:5px;transition:background .2s,transform .15s;display:inline-block}
+.btn-p:hover{background:#33ddb8;transform:translateY(-2px)}
+.btn-s{font-family:var(--font-h);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-decoration:none;background:transparent;color:var(--white);padding:.8rem 2rem;border-radius:5px;border:1px solid rgba(0,212,170,.25);transition:border-color .2s,color .2s;display:inline-block}
+.btn-s:hover{border-color:var(--teal);color:var(--teal)}
+
+/* MISSION */
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.mission-visual{background:var(--ink2);border:1px solid var(--border);border-radius:12px;padding:2.5rem;position:relative;overflow:hidden}
+.mission-visual::before{content:'';position:absolute;width:280px;height:280px;background:radial-gradient(circle,rgba(0,212,170,.14) 0%,transparent 70%);top:-60px;right:-60px}
+.big-q{font-family:var(--font-h);font-size:5rem;line-height:1;color:rgba(0,212,170,.14);margin-bottom:.2rem}
+.q-text{font-family:var(--font-h);font-size:1.3rem;font-weight:700;line-height:1.45;color:var(--white);margin-bottom:.8rem}
+.q-attr{font-size:.73rem;color:var(--muted)}
+.mission-stats{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ms-num{font-family:var(--font-h);font-size:2rem;font-weight:800;color:var(--teal);line-height:1}
+.ms-num.a{color:var(--amber)}
+.ms-l{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.check-list{list-style:none;margin-top:1.6rem;display:flex;flex-direction:column;gap:.75rem}
+.check-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.83rem;color:var(--muted);line-height:1.6}
+.check-list li::before{content:'▸';color:var(--amber);flex-shrink:0;margin-top:.1rem}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.8rem}
+.val-card{background:var(--ink3);border:1px solid var(--border);border-radius:9px;padding:1.8rem;transition:border-color .25s,transform .25s}
+.val-card:hover{border-color:var(--teal);transform:translateY(-3px)}
+.val-num{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
+.val-num.a{color:var(--amber)}
+.val-t{font-family:var(--font-h);font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.val-d{font-size:.75rem;line-height:1.75;color:var(--muted)}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.8rem}
+.team-card{background:var(--ink2);border:1px solid var(--border);border-radius:9px;overflow:hidden;transition:border-color .25s}
+.team-card:hover{border-color:var(--teal)}
+.team-av{
+  height:180px;background:var(--ink3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-h);font-size:2.8rem;font-weight:800;color:var(--teal);
+  position:relative;
+}
+.team-av::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--ink2))}
+.team-av.a{color:var(--amber)}
+.team-info{padding:1.4rem}
+.team-name{font-family:var(--font-h);font-size:.98rem;font-weight:700;margin-bottom:.2rem}
+.team-role{font-size:.68rem;color:var(--teal);letter-spacing:.04em;margin-bottom:.6rem}
+.team-role.a{color:var(--amber)}
+.team-bio{font-size:.72rem;line-height:1.7;color:var(--muted)}
+
+/* TIMELINE */
+.timeline{position:relative;margin-top:2.8rem}
+.timeline::before{content:'';position:absolute;left:105px;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{display:flex;gap:2rem;padding:1.8rem 0;border-bottom:1px solid var(--border)}
+.tl-year{font-family:var(--font-h);font-size:.95rem;font-weight:800;color:var(--teal);width:70px;flex-shrink:0;padding-top:.2rem}
+.tl-dot{width:11px;height:11px;border-radius:50%;background:var(--teal);border:2px solid var(--ink);flex-shrink:0;margin-top:.35rem;position:relative;z-index:1}
+.tl-dot.a{background:var(--amber)}
+.tl-h{font-family:var(--font-h);font-size:.9rem;font-weight:700;margin-bottom:.3rem}
+.tl-p{font-size:.75rem;line-height:1.7;color:var(--muted)}
+
+/* CERTS */
+.certs{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.cert{background:var(--ink3);border:1px solid var(--border);border-radius:7px;padding:.7rem 1.1rem;font-size:.7rem;font-weight:600;color:var(--white);display:flex;align-items:center;gap:.4rem}
+.cert::before{content:'🏅'}
+
+/* CTA */
+.cta-sec{text-align:center;padding:5rem 2.5rem;background:linear-gradient(135deg,var(--ink3) 0%,var(--ink2) 100%);border-top:1px solid var(--border);position:relative;overflow:hidden;z-index:1}
+.cta-sec::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+footer{background:var(--ink2);border-top:1px solid var(--border);padding:2.5rem;position:relative;z-index:1}
+.ft-brand{font-family:var(--font-h);font-weight:800;font-size:1.1rem;margin-bottom:.5rem}
+.ft-brand span{color:var(--teal)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.ft-bottom p,.ft-bottom a{font-size:.65rem;color:var(--muted2);text-decoration:none}
+.ft-bottom a:hover{color:var(--teal)}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.rev.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@media(max-width:900px){
+  .nav-links{display:none}.mission-grid,.team-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr 1fr}.timeline::before{left:65px}.pg-hero,.sec{padding-left:1.5rem;padding-right:1.5rem}
+}
+@media(max-width:560px){.values-grid,.team-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="home.html">
+    <div class="nav-logo-mark">N</div>
+    <span class="nav-brand">Nairsys<span>.Inc</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="contact.html">Get Started</a>
+</nav>
+
+<div class="pg-hero"><div class="pg-orb"></div>
+  <div class="bc"><a href="home.html">Home</a><span>›</span><span>About</span></div>
+  <p class="tag">Our Story</p>
+  <h1 style="font-family:var(--font-h);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem">Built by practitioners.<br><span style="color:var(--teal)">Driven by outcomes.</span></h1>
+  <p class="body" style="max-width:54ch">Nairsys Inc was founded on a conviction: organizations deserve IT consultants who treat every challenge as their own, and stay accountable through every phase of the journey.</p>
+</div>
+
+<!-- MISSION -->
+<section class="sec">
+  <div class="mission-grid">
+    <div class="rev">
+      <p class="tag">Our Mission</p>
+      <h2 class="h2">Technology that enables.<br>Consulting that endures.</h2>
+      <p class="body" style="margin-top:.8rem">We partner with organizations of all sizes to design, implement, and manage the technology systems that power their operations — bringing the depth of an enterprise consultancy with the agility of a boutique firm.</p>
+      <p class="body" style="margin-top:.8rem">Every engagement begins with deep listening. The best solutions emerge from genuine understanding of your business model, culture, and constraints — not from templated playbooks.</p>
+      <ul class="check-list">
+        <li>Senior-led engagements — no bait-and-switch with junior staff</li>
+        <li>Vendor-neutral advice in your best interest, always</li>
+        <li>Measurable KPIs defined before work begins</li>
+        <li>Knowledge transfer built into every project deliverable</li>
+        <li>Post-project support included in every engagement</li>
+      </ul>
+    </div>
+    <div class="mission-visual rev d2">
+      <div class="big-q">"</div>
+      <p class="q-text">Great IT consulting doesn't end at the slide deck — it ends when the outcome is real.</p>
+      <p class="q-attr">— Nairsys Inc Founding Principle</p>
+      <div class="mission-stats">
+        <div><div class="ms-num">2009</div><div class="ms-l">Founded</div></div>
+        <div><div class="ms-num a">200+</div><div class="ms-l">Clients Served</div></div>
+        <div><div class="ms-num">50+</div><div class="ms-l">Certifications</div></div>
+        <div><div class="ms-num a">15+</div><div class="ms-l">Years in IT</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="sec sec-alt" id="values">
+  <div class="rev"><p class="tag">Our Values</p><h2 class="h2">The principles guiding<br>every engagement.</h2></div>
+  <div class="values-grid">
+    <div class="val-card rev"><p class="val-num">01 — Integrity</p><h3 class="val-t">Radical Transparency</h3><p class="val-d">We communicate openly about risks, timelines, and challenges — even when it's uncomfortable. You'll never be blindsided by a Nairsys team.</p></div>
+    <div class="val-card rev d1"><p class="val-num">02 — Expertise</p><h3 class="val-t">Depth Over Breadth</h3><p class="val-d">Our consultants hold deep specializations, not generalist backgrounds. We hire for mastery and invest in continuous certification and training.</p></div>
+    <div class="val-card rev d2"><p class="val-num">03 — Partnership</p><h3 class="val-t">Genuine Collaboration</h3><p class="val-d">We work alongside your team — not above them. Knowledge transfer is a built-in deliverable of every engagement we undertake.</p></div>
+    <div class="val-card rev"><p class="val-num a">04 — Impact</p><h3 class="val-t">Results Over Reports</h3><p class="val-d">We measure success by outcomes — reduced costs, improved uptime, faster processes, and stronger security posture.</p></div>
+    <div class="val-card rev d1"><p class="val-num a">05 — Innovation</p><h3 class="val-t">Future-Forward Thinking</h3><p class="val-d">We continuously invest in emerging technologies — AI, edge computing, quantum-safe cryptography — so your roadmap stays ahead.</p></div>
+    <div class="val-card rev d2"><p class="val-num a">06 — Accountability</p><h3 class="val-t">We Own the Outcome</h3><p class="val-d">Our consultants remain engaged through implementation, not just recommendations. If something isn't working, we fix it — period.</p></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec" id="team">
+  <div class="rev"><p class="tag">Leadership</p><h2 class="h2">Meet the team behind<br>your transformation.</h2></div>
+  <div class="team-grid">
+    <div class="team-card rev">
+      <div class="team-av">BN</div>
+      <div class="team-info">
+        <h3 class="team-name">Bala Nair</h3>
+        <p class="team-role">Founder &amp; CEO · Enterprise Architect</p>
+        <p class="team-bio">20+ years leading enterprise IT transformations across Fortune 500 companies. </p>
+      </div>
+    </div>
+    <div class="team-card rev">
+      <div class="team-av a">KN</div>
+      <div class="team-info">
+        <h3 class="team-name">Karshin Nair</h3>
+        <p class="team-role a">VP </p>
+        <p class="team-bio">Global consulting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section class="sec sec-alt">
+  <div class="rev"><p class="tag a">Credentials</p><h2 class="h2">Certifications that prove<br>our expertise.</h2></div>
+  <div class="certs rev d1">
+    <div class="cert">AWS Solutions Architect</div><div class="cert">Azure Solutions Architect</div>
+    <div class="cert">Google Cloud Professional</div><div class="cert">CISSP</div><div class="cert">CISM</div>
+    <div class="cert">OSCP</div><div class="cert">CCSP</div><div class="cert">TOGAF 9</div>
+    <div class="cert">SAP S/4HANA</div><div class="cert">Oracle Cloud ERP</div>
+    <div class="cert">MS Dynamics 365</div><div class="cert">PMP</div><div class="cert">ITIL 4</div>
+    <div class="cert">CISA</div><div class="cert">CRISC</div><div class="cert">ISO 27001 Lead Auditor</div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec">
+  <div class="rev"><p class="tag">Our Journey</p><h2 class="h2">15 years of innovation<br>and growth.</h2></div>
+  <div class="timeline rev d1">
+    <div class="tl-item"><span class="tl-year">2009</span><div class="tl-dot"></div><div><h4 class="tl-h">Nairsys Inc Founded</h4><p class="tl-p">Started as a boutique IT architecture firm serving mid-market companies. First 10 clients in year one.</p></div></div>
+    <div class="tl-item"><span class="tl-year">2012</span><div class="tl-dot a"></div><div><h4 class="tl-h">Cybersecurity Practice Launched</h4><p class="tl-p">Expanded into cybersecurity consulting following a surge in client demand. Hired our first CISSP-certified team.</p></div></div>
+    <div class="tl-item"><span class="tl-year">2015</span><div class="tl-dot"></div><div><h4 class="tl-h">Managed IT &amp; ERP Services Added</h4><p class="tl-p">Launched 24/7 NOC and established our ERP practice, completing our first SAP S/4HANA implementation.</p></div></div>
+    <div class="tl-item"><span class="tl-year">2018</span><div class="tl-dot a"></div><div><h4 class="tl-h">Data Analytics Practice &amp; National Expansion</h4><p class="tl-p">Opened offices in Chicago and Dallas. Launched our Data &amp; AI practice with 50+ managed service clients.</p></div></div>
+    <div class="tl-item"><span class="tl-year">2021</span><div class="tl-dot"></div><div><h4 class="tl-h">Compliance &amp; Risk Practice Established</h4><p class="tl-p">Formalized our GRC practice to meet growing demand for HIPAA, SOC 2, and NIST consulting. 100+ client milestone.</p></div></div>
+    <div class="tl-item" style="border-bottom:none"><span class="tl-year">2024</span><div class="tl-dot a"></div><div><h4 class="tl-h">200+ Clients · AI-First Consulting</h4><p class="tl-p">Nairsys now serves 200+ organizations with 50+ certified experts across 8 practice areas — including a growing AI strategy capability.</p></div></div>
+  </div>
+</section>
+
+<div class="cta-sec">
+  <p class="tag" style="justify-content:center">Join 200+ Organizations</p>
+  <h2 class="h2" style="margin-bottom:1rem">Ready to work with a team<br>invested in your success?</h2>
+  <p class="body" style="max-width:52ch;margin:0 auto 2rem;text-align:center">Start with a no-obligation conversation. We'll listen first, then share how we can help.</p>
+  <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
+    <a class="btn-p" href="contact.html">Schedule a Discovery Call</a>
+    <a class="btn-s" href="services.html">Explore Our Services →</a>
+  </div>
+</div>
+
+<footer><p class="ft-brand">Nairsys<span>.Inc</span></p>
+  <div class="ft-bottom"><p>© 2024 Nairsys Inc · balanair@nairsys.com · +1 (630) 352-0150</p><p><a href="#">Privacy</a> · <a href="#">Terms</a></p></div>
+</footer>
+<script>const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}})},{threshold:.06});document.querySelectorAll('.rev').forEach(el=>obs.observe(el));</script>
+</body></html>
